@@ -62,16 +62,19 @@ buildPythonApplication rec {
   format = "other";
 
   src = fetchFromGitHub {
-    owner = "kovidgoyal";
+    owner = "zspekt";
     repo = "kitty";
-    rev = "5e7e512d8af21b52984238dc43688fbb6482d319";
-    hash = "sha256-nN0y2VKK5UNaozpHQNPN7AYkto9z6rJNpYRJhvLPtVQ=";
+    rev = "3d23164e1642b52342a1fa51d2fca6cfd306bfba";
+    # rev = "5e7e512d8af21b52984238dc43688fbb6482d319";
+    hash = "sha256-OKAu0uM5QaWSEHbPdGyGCMVn/pld/lBr7o4JvbHYUxc=";
+    # hash = "sha256-nN0y2VKK5UNaozpHQNPN7AYkto9z6rJNpYRJhvLPtVQ=";
   };
 
   goModules =
     (buildGo123Module {
       pname = "kitty-go-modules";
       inherit src version;
+
       vendorHash = "sha256-8hsQH7OdsxeVG6pomuxdmTXNmQYBROoUUxoC10LeLFo=";
     }).goModules;
 
