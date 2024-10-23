@@ -28,11 +28,17 @@
   installShellFiles,
   dbus,
   sudo,
-  Libsystem,
-  Cocoa,
-  Kernel,
-  UniformTypeIdentifiers,
-  UserNotifications,
+
+  # darwin specific ###
+
+  Libsystem ? null,
+  Cocoa ? null,
+  Kernel ? null,
+  UniformTypeIdentifiers ? null,
+  UserNotifications ? null,
+
+  #####################
+
   libcanberra,
   libicns,
   wayland-scanner,
@@ -65,7 +71,7 @@ buildPythonApplication rec {
   goModules =
     (buildGo123Module {
       pname = "kitty-go-modules";
-      # inherit src version;
+      inherit src version;
       vendorHash = "sha256-8hsQH7OdsxeVG6pomuxdmTXNmQYBROoUUxoC10LeLFo=";
     }).goModules;
 
